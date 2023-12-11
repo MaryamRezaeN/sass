@@ -1,0 +1,103 @@
+@import "variablere";
+
+
+
+@function textBrightness($bgcolor)
+{
+    @if (lightness($bgcolor) > 50)
+        {@return black;}
+    @else 
+    {
+    @return white;
+    }   
+}
+
+@function biggerFont($FontS)
+{
+  @return $FontS * 2;
+}
+
+
+@mixin headingStyle($fontSize){
+    text-align: center;
+    color: $tritary-color; 
+    font-size: $fontSize;
+    
+
+}
+
+
+
+@function DoubleFont($font-doub)
+{
+    @return $font-doub * 2
+}
+
+
+
+
+nav{
+    background-color: $tritary-color;
+    overflow: hidden;
+    ul{
+        
+        li{
+            display: inline;
+            padding-right: 20px;
+            list-style: none;
+            a{
+                text-decoration: none;
+                font-size: biggerFont(20px);
+                color: purple;
+                &:hover{
+                    color: $primary-color;
+                }
+                
+            }
+        }   
+    }
+}
+.banner h1
+{
+    $text-color: #d85335 !global;
+    @include headingStyle($font-size-lg)
+}
+.footer {
+    h3
+        {
+            @include headingStyle($font-size-sm)
+        }
+    p
+        {
+            color: $text-color;
+        }
+}
+
+@mixin buttonAnimA($duration: 2s){
+    animation-name: identifier;
+    animation-iteration-count: infinite;
+    animation-duration: $duration;
+    
+
+    @keyframes identifier {
+        from{background-color: red;}
+        to{background-color: rgb(67, 88, 79);}
+    }
+    
+}
+div.gh{
+    width: 100px; 
+    height: 100px;
+   background-color: #d85335;
+    @include buttonAnimA(2s)
+}
+
+// .rgf
+// {
+//     font-size: DoubleFont(40px);
+// }
+
+
+
+
+
